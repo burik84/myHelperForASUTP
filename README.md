@@ -11,3 +11,5 @@
 2. Prosafe RS
 
 Обо мне можно узнать [здесь](https://burik84.github.io/my-portfolio/)
+
+Переходите к [шпаргалке](index.md)
