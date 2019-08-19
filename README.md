@@ -7,7 +7,7 @@
 Итак здесь будет приставлено
 1. Centum VP
   1. CALCU
-  2. SFC
+  1. SFC
 2. Prosafe RS
 
 Обо мне можно узнать [здесь](https://burik84.github.io/my-portfolio/)
