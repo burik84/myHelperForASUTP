@@ -8,7 +8,7 @@
 Итак здесь будет приставлено
 1. Centum VP
   1. CALCU
-  1. SFC
+  1. SEBOL
 2. Prosafe RS
 
 Обо мне можно узнать [здесь](https://burik84.github.io/my-portfolio/)

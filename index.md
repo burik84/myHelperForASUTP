@@ -8,5 +8,5 @@
 
 ### Разделы
 [CALCU](/block/calcu.md)
-[sfc блок](/block/sfc.md)
+[SEBOL](/block/sebol.md)
 [prosafe-rs](/block/prosafe.md)
