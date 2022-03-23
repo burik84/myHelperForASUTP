@@ -6,7 +6,8 @@
 
 Далее я использовал наработки из проектов и дополнил их комментарием из руководств
 
-### Разделы
-[CALCU](/block/calcu.md)
-[SEBOL](/block/sebol.md)
-[prosafe-rs](/block/prosafe.md)
+## Разделы
+
+- [CALCU](/block/calcu.md)
+- [SEBOL](/block/sebol.md)
+- [prosafe-rs](/block/prosafe.md)
