@@ -1,15 +1,21 @@
 # Шпаргалка для работы с Yokogawa
 
 ## Зачем?
+
 Для экономии времени.
-Здесь будут собрана краткая информация по Yokogawa Centum VP и немного будет ProSafe
+Здесь будут собрана краткая информация по Yokogawa - Centum VP и ProSafe, и Siemens  - Simatic STEP7 и WinCC
 
 ## Описание
+
 Итак здесь будет приставлено
+
 1. Centum VP
-  1. CALCU
-  1. SEBOL
+   1. CALCU
+   2. SEBOL
 2. Prosafe RS
+3. Siemens
+   1. Simatic STEP7
+   2. WinCC
 
 Обо мне можно узнать [здесь](https://burik84.github.io/my-portfolio/)
 
