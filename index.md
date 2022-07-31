@@ -15,3 +15,4 @@
 - [Yokogawa prosafe-rs](/controllers/yokogawa/prosafe.md)
 - Siemens
   - [STEP7](/controllers/siemens/step7.md)
+    - [FBD](/controllers/siemens/fbd.md)
