@@ -1,6 +1,6 @@
 # Вводная часть
 
-На сегодняшний момент в сети я нашел лишь один ресурс для шпаргалки:
+На сегодняшний момент в сети я нашел лишь один ресурс по Centum и Prosafe:
 
 - [Пошаговый самучитель CENTUM VP](http://www.maxplant.ru/article/centum_tutorial_content.php)
 - [Пошаговый самоучитель ProSafe-RS](http://www.maxplant.ru/article/prosafe_tutorial_content.php)
