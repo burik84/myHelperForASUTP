@@ -26,6 +26,53 @@ elsif (b>c) then
 else
   // code ;
 end_if;
+
+CASE value OF
+    0..3 :
+        // Statements_0..3
+        ;
+    8 :
+        // Statements_8
+        ;
+ELSE:
+    // Statements_ELSE
+    ;
+END_CASE;
+```
+
+- циклы
+
+```scl циклы
+FOR i:=1 TO 100 BY 1 DO
+  IF i>50 THEN
+      EXIT;  //безусловный выход из цикла
+  END_IF;
+  IF (i MOD 2)<>0 THEN //MOD деление от остатка
+      CONTINUE; // прерывание и переход на следующий цикл
+  END_IF;
+  ex.Arr[i]:=1;
+END_FOR;
+
+WHILE Lock DO //conditions
+  //Code
+  //don't forget about Exit out while
+  Count:=Count+1;
+  T:=T+1;
+  IF T>32000 THEN
+      EXIT;
+  END_IF;
+END_WHILE;
+
+REPEAT
+  //Code
+  //don't forget about Exit out repeat
+  Count:=Count+1;
+  T:=T+1;
+  IF T>32000 THEN
+      EXIT;
+  END_IF;
+  UNTIL NOT Lock  //condition
+END_REPEAT;
 ```
 
 - вызов функций
