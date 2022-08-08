@@ -16,3 +16,4 @@
 - Siemens
   - [STEP7](/controllers/siemens/step7.md)
     - [FBD](/controllers/siemens/fbd.md)
+    - [SCL](/controllers/siemens/scl.md)
