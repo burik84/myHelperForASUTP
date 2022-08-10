@@ -11,7 +11,7 @@
    2. Программа хорошо мониторится
    3. Логика содержит схемы
    4. Позволяет конвертировать на другие языки
-3. STL
+3. [STL](stl.md)
    1. Язык "Assembler"
    2. Логика указывает буквой/буквами
    3. Формируются мнемонические команды для процесса
@@ -45,14 +45,23 @@
 
 ## Обращение к переменным
 
-Память входов - I
-Память выходов - Q
-Память меркеров - M
+- Память входов - I
+- Память выходов - Q
+- Память меркеров - M
 
 Обозначение | пример|
 ---:|:---:|
 [память][byte].[bool] | I 0.2
 [память (длина B/W/D)][first byte] | IB 1, IW 2, IM 3
+
+## Short Key
+
+KEY | Action| Comment |
+---:|:---:|:---
+CTRL+ALT+T | Symbol Editor |
+CTRL+ALT+R | Cross-References | All Data in Project
+CTRL+D | Module Information | Info about Controller
+CTRL+I | Operation Mode | Can Restart Controller
 
 ## Timer
 
