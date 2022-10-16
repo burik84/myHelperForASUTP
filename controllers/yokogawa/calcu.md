@@ -39,9 +39,16 @@ end
 alias <псевдоним> <tag>.<параметр>
 alias   _ft   FT73001.PV
 alias   _d  404TIME.DAY
+alias _pid_p FT22101.P
+alias _pl FT22101.PL
+alias _tm1  H8_2_TM1.DV
 alias name {name_pid.MODE.AUTO}
 alias low {name.ALRM.LO}
-
+alias _tm3_st {H8_2_TM3.BSTS.NR}
+alias _tm1  {H8_2_TM1.OP.START}
+alias K1A {404COMPR_STAT_RL.X01.GE}
+alias _P1IOP {209_2PT6.ALRM.IOP}
+alias _P2IOP_ {209_2PT10.ALRM.IOP-}
 ```
 
 Объявление локальных переменных **в начале программы**
@@ -132,6 +139,7 @@ end if
 Операторы сравнения <,>,>=,<=,==,<>
 логические операторы and, or, not
 условия (условие1 and условие2 or условие3)
+NOT()
 ```
 
 ### Примеры с комментариями
@@ -150,6 +158,62 @@ if ((RV - RV1) >= 0.3 or (RV1 - RV) >= 0.3) then ! используем вход
   else
     CPV1 = 0
 end if
+```
+
+```text
+alias OPMK1 80_5Z200_9.OPMK
+alias ST1 %WW0123.PV
+alias LINK PAKSCAN_14_ALRM.PV
+
+OPMK1=((ST1 & 2)>0 or LINK>0)*2+((ST1 & 2)==0 and LINK==0)*((ST1 & 128)>0)*3
+
+```
+
+```text
+! Без объявления тэгов
+if (V302ALT4_3_13.PV > V302BLT4_3_13.PV) then
+  P01 = V302ALT4_3_13.PV
+else
+  P01 = V302BLT4_3_13.PV
+end if
+```
+
+```text
+! Суммтор для расходомера
+alias   _ft   209_2FT1_N_CALC.CPV
+alias _d   404TIME.DAY
+alias   _h     404TIME.HOUR
+
+CPV1 = (_ft / 3600.0) * (_ft>=0)
+
+CPV2 = CPV1 + CPV2  ! summator dlya ezhednevnogo sbrosa
+CPV3 = CPV2
+
+P03 = CPV1 + P03  !summator dlya ezhemesyachnogo sbrosa
+CPV = P03
+
+! ежедневный сброс в 8ч и сохранение данных
+if ((_h==8) AND (P01==0)) then
+  P08 = CPV3
+  CPV2 = 0
+  P01=1
+end if
+
+!сброс триггера ежедневного
+if ((_h==9) AND (P01==1))    P01=0
+
+! Ежемесячный сброс данных и сохранение данных
+if ((_d==1) AND (P02==0)) then
+  P07 = CPV
+  P03 = 0
+  P02=1
+  end if
+
+!Сброс триггера ежемесячного
+if ((_d==2) AND (P02==1))    P02=0
+
+end
+
 ```
 
 [назад](../index.md)
