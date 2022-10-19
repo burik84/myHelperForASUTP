@@ -112,6 +112,7 @@ P03 = dlimit(P04,0,1000)
 Выходные переменные *CPV, CPV1, CPV2, CPV3, P01...P08*
 
 ```text
+P04 = (RV+0.1)*100.0/2.6
 CPV=tag+tag*2
 ```
 
@@ -150,14 +151,41 @@ alias LOW {NAME_KIP.ALRM.LO}
 
 if (AUTO) cpv=1 !Если режим NAME_PID выбран AUTO, то CPV=1
 if (LOW) cpv1=1 !Если для NAME_KIP сигнализация LO, то CPV1=1
+
+E8TT_DIF.DT01 = (TT22056.PV-TT22055.PV)*not({TT22056.PV=CAL})*not({TT22055.PV=CAL})
 ```
 
 ```text
 if ((RV - RV1) >= 0.3 or (RV1 - RV) >= 0.3) then ! используем вход RV и RV1
  CPV = 1
-  else
-    CPV1 = 0
+else
+  CPV1 = 0
 end if
+```
+
+!Краткая форма условий для выражений
+
+```text
+alias a1 21ZRU_S1PWR.PV
+alias a2 21ZRU_QL1ON.PV
+alias a5 21_AUTO.PV
+alias a8 21DG1_FIRE.PV
+alias a9 21DG2_FIRE.PV
+alias a10 21DG3_FIRE.PV
+alias a11 21DG4_FIRE.PV
+alias a12 21DG5_FIRE.PV
+alias a13 21_RTP2.PV
+
+alias b1 21POWER404_AL.PV
+alias b3 21AUTO_AL.PV
+alias b5 21FIRE_AL.PV
+alias b6 21REQ404_AL.PV
+
+
+b1=a1 and a2
+b3=not a5
+b5=a8 or a9 or a10 or a11 or a12
+b6=a13
 ```
 
 ```text
@@ -176,6 +204,17 @@ if (V302ALT4_3_13.PV > V302BLT4_3_13.PV) then
 else
   P01 = V302BLT4_3_13.PV
 end if
+```
+
+```text
+alias OP 2071KSE4_OP.PV
+alias OPN 2071KSE4_OPN.PV
+alias CLS 2071KSE4_CLS.PV
+alias MODE 2071KSE4_MODE.PV
+
+OP = (RV==1)
+CPV=1*(OPN==1)+2*(CLS==1)
+MODE = (RV1==1)
 ```
 
 ```text
@@ -211,6 +250,27 @@ if ((_d==1) AND (P02==0)) then
 
 !Сброс триггера ежемесячного
 if ((_d==2) AND (P02==1))    P02=0
+
+end
+```
+
+### Примеры с операциями побитовыми
+
+```text
+! из примера перерасчета температур с Enraf в АСУТП (exc TT21056_CALCU)
+#implicit none
+
+alias DATA1 RV1
+
+P01 = (DATA1 >> 24) & $FF
+P02 = (DATA1 >> 16) & $FF
+
+P03 = (DATA1 >> 8) & $FF
+P04 = DATA1 & $FF
+
+CPV1 = (P02-$30) * 100 + (P03-$30)*10 + (P04-$30)
+
+if (P01 == $2D) CPV = CPV * (-1)
 
 end
 
